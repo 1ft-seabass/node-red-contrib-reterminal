@@ -1,6 +1,6 @@
 <script type="text/javascript">
-  RED.nodes.registerType('node-red-reterminal',{
-      category: 'device',
+  RED.nodes.registerType('buttons',{
+      category: 'reterminal',
       color: '#E9967A',
       defaults: {
           name: { value:"" }
@@ -9,18 +9,18 @@
       outputs:1,
       icon: "arrow-in.png",
       label: function() {
-          return this.name||"reterminal";
+          return this.name||"buttons";
       }
   });
 </script>
 
-<script type="text/x-red" data-template-name="node-red-reterminal">
+<script type="text/x-red" data-template-name="buttons">
   <div class="form-row">
       <label for="node-input-name"><i class="icon-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="node-red-reterminal">
+<script type="text/x-red" data-help-name="buttons">
   <p>Node-RED reTerminal</p>
 </script>

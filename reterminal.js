@@ -1,5 +1,3 @@
-var request = require('request');
-
 module.exports = function (RED) {
   function NodeRedReTerminal(config) {
     RED.nodes.createNode(this, config);
@@ -8,7 +6,7 @@ module.exports = function (RED) {
       node.send(msg);
     });
   }
-  RED.nodes.registerType("node-red-reterminal", NodeRedReTerminal, {
+  RED.nodes.registerType("buttons", NodeRedReTerminal, {
     
   });
 }
