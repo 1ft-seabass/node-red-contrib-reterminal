@@ -1,15 +1,16 @@
 <script type="text/javascript">
   RED.nodes.registerType('buttons',{
       category: 'reterminal',
-      color: '#E9967A',
+      color: '#C7E9C0',
       defaults: {
           name: { value:"" }
       },
-      inputs:1,
+      inputs:0,
       outputs:1,
       icon: "arrow-in.png",
+      paletteLabel:"reterminal buttons",
       label: function() {
-          return this.name||"buttons";
+          return this.name||"reterminal buttons";
       }
   });
 </script>
@@ -22,5 +23,5 @@
 </script>
 
 <script type="text/x-red" data-help-name="buttons">
-  <p>Node-RED reTerminal</p>
+  <p>reTerminal buttons node</p>
 </script>
