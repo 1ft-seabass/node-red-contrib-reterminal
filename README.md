@@ -1,6 +1,6 @@
 # node-red-contrib-reterminal
 
-The node accessing for [reTerminal \- Embedded Linux with Raspberry Pi CM4 and 5\-Inch Capacitive Multi\-Touch Screen \- Seeed Studio](https://www.seeedstudio.com/ReTerminal-with-CM4-p-4904.html) Datas.
+The node accessing for [reTerminal](https://www.seeedstudio.com/ReTerminal-with-CM4-p-4904.html) Datas.
 
 ## Install
 
