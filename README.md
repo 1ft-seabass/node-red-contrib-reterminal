@@ -2,7 +2,11 @@
 
 The node accessing for Seeed Studio reTerminal various data such as buttons, buzzer, LED, light, touch positions and accelerometer sensor.
 
-[reTerminal \- Embedded Linux with Raspberry Pi CM4 and 5\-Inch Capacitive Multi\-Touch Screen \- Seeed Studio](https://www.seeedstudio.com/ReTerminal-with-CM4-p-4904.html)
+## About reTerminal
+
+![image](https://i.gyazo.com/7bcdadd4dd22a150775a2890d9145ab7.jpg)
+
+- [reTerminal \- Embedded Linux with Raspberry Pi CM4 and 5\-Inch Capacitive Multi\-Touch Screen \- Seeed Studio](https://www.seeedstudio.com/ReTerminal-with-CM4-p-4904.html)
 
 ## Install
 
