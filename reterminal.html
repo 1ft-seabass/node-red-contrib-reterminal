@@ -7,8 +7,8 @@
       },
       inputs:0,
       outputs:1,
-      icon: "arrow-in.png",
-      paletteLabel:"reterminal buttons",
+      icon: "arrow-in.svg",
+      paletteLabel:"buttons",
       label: function() {
           return this.name||"reterminal buttons";
       }
@@ -24,4 +24,117 @@
 
 <script type="text/x-red" data-help-name="buttons">
   <p>reTerminal buttons node</p>
+</script>
+
+
+<script type="text/javascript">
+  RED.nodes.registerType('accelerometer',{
+      category: 'reterminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:0,
+      outputs:1,
+      icon: "arrow-in.svg",
+      paletteLabel:"accel",
+      label: function() {
+          return this.name||"reterminal accelerometer";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="accelerometer">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="accelerometer">
+  <p>reTerminal accelerometer node</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('led_sta_green',{
+      category: 'reterminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:1,
+      outputs:0,
+      icon: "light.svg",
+      paletteLabel:"STA Green",
+      label: function() {
+          return this.name||"reterminal LED STA Green";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="led_sta_green">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_sta_green">
+  <p>reTerminal LED node</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('led_sta_red',{
+      category: 'reterminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:1,
+      outputs:0,
+      icon: "light.svg",
+      paletteLabel:"STA Red",
+      label: function() {
+          return this.name||"reterminal LED STA Red";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="led_sta_red">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_sta_red">
+  <p>reTerminal LED node</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('led_usr_green',{
+      category: 'reterminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:1,
+      outputs:0,
+      icon: "light.svg",
+      paletteLabel:"USR Green",
+      label: function() {
+          return this.name||"reterminal LED USR Green";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="led_usr_green">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="led_usr_green">
+  <p>reTerminal LED node</p>
 </script>
