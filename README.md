@@ -22,9 +22,34 @@ or
 * Search "node-red-contrib-reterminal" on Node-RED Library.
 * Click "Install".
 
-## Usage
+## Quick Start Flow
 
-Writing...
+Import this flow after installed. See [Importing and Exporting Flows : Node\-RED](https://nodered.org/docs/user-guide/editor/workspace/import-export) about importing.
+
+
+```
+[{"id":"d6b4ebfcf6b94c1e","type":"buttons","z":"f994f94243fd8cf5","name":"","x":150,"y":160,"wires":[["ac6e1a3c0c652665"]]},{"id":"ac6e1a3c0c652665","type":"debug","z":"f994f94243fd8cf5","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":450,"y":160,"wires":[]},{"id":"c0ae57d8d10522fc","type":"accelerometer","z":"f994f94243fd8cf5","name":"","x":170,"y":300,"wires":[["96163321e4c5ffec"]]},{"id":"96163321e4c5ffec","type":"debug","z":"f994f94243fd8cf5","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":450,"y":300,"wires":[]},{"id":"8bf5a488e484ef7c","type":"led_sta_green","z":"f994f94243fd8cf5","name":"","x":900,"y":160,"wires":[]},{"id":"45c243d6007098af","type":"led_sta_red","z":"f994f94243fd8cf5","name":"","x":890,"y":300,"wires":[]},{"id":"bb36d7fe0771dee4","type":"led_usr_green","z":"f994f94243fd8cf5","name":"","x":900,"y":480,"wires":[]},{"id":"f59a1f6f456b3d82","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"true","payloadType":"bool","x":670,"y":480,"wires":[["bb36d7fe0771dee4"]]},{"id":"be3c349ad01799ca","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"false","payloadType":"bool","x":670,"y":520,"wires":[["bb36d7fe0771dee4"]]},{"id":"6218e1ca0a3cde93","type":"comment","z":"f994f94243fd8cf5","name":"Get buttons status.","info":"","x":150,"y":120,"wires":[]},{"id":"66cc6b4133b7c90d","type":"comment","z":"f994f94243fd8cf5","name":"Get accelerometer sensor status.","info":"","x":190,"y":260,"wires":[]},{"id":"fc3c346828e99aec","type":"comment","z":"f994f94243fd8cf5","name":"Turn STA LED to green.","info":"","x":700,"y":120,"wires":[]},{"id":"9776933cca3f98d4","type":"comment","z":"f994f94243fd8cf5","name":"Turn STA LED to red.","info":"","x":700,"y":260,"wires":[]},{"id":"931ecb6864a57fba","type":"comment","z":"f994f94243fd8cf5","name":"Turn USR LED to green.","info":"","x":710,"y":440,"wires":[]},{"id":"a08066e92cfc1a1f","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"true","payloadType":"bool","x":670,"y":320,"wires":[["45c243d6007098af"]]},{"id":"3f354196ccefc8e5","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"false","payloadType":"bool","x":670,"y":360,"wires":[["45c243d6007098af"]]},{"id":"5828d20d3c21aa15","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"true","payloadType":"bool","x":670,"y":160,"wires":[["8bf5a488e484ef7c"]]},{"id":"e160f3e85690820e","type":"inject","z":"f994f94243fd8cf5","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"false","payloadType":"bool","x":670,"y":200,"wires":[["8bf5a488e484ef7c"]]}]
+```
+
+Like this flow,
+
+![image](https://i.gyazo.com/6abd15c55fcad85ac90af2409a48becc.png)
+
+Usage,
+
+- Get buttons status
+  - `reterminal buttons` node will catch the button status when you push F1 / F2 / F3 / O buttons.
+- Get accelerometer sensor status
+  - `reterminal accelerometer` node will catch the accelerometer sensor data.
+- Turn STA LED to green
+  - `reterminal STA LED Green` node will turn on green in reTerminal STA LED when inject node boolean true is clicked.
+  - `reterminal STA LED Green` node will turn off in reTerminal STA LED when inject node boolean false is clicked.
+- Turn STA LED to red
+  - `reterminal STA LED Rreen` node will turn on red in reTerminal STA LED when inject node boolean true is clicked.
+  - `reterminal STA LED Rreen` node will turn off in reTerminal STA LED when inject node boolean false is clicked.
+- Turn USR LED to green
+  - `reterminal USR LED Green` node will turn on green in reTerminal USR LED when inject node boolean true is clicked.
+  - `reterminal USR LED Green` node will turn off in reTerminal USR LED  when inject node boolean false is clicked.
 
 ## Acknowledgments
 
@@ -34,6 +59,8 @@ This library is easy to access reTerminal device Datas such as buttons, buzzer, 
 
 ## History
 
+- v0.0.5
+  - Added a quick start flow.
 - v0.0.3
   - accelerometer sensor supported.
   - LED STA Green on/off supported.
