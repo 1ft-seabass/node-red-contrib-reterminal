@@ -1,6 +1,6 @@
 <script type="text/javascript">
   RED.nodes.registerType('buttons',{
-      category: 'reterminal',
+      category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
           name: { value:"" }
@@ -8,9 +8,9 @@
       inputs:0,
       outputs:1,
       icon: "arrow-in.svg",
-      paletteLabel:"buttons",
+      paletteLabel:"Buttons",
       label: function() {
-          return this.name||"reterminal buttons";
+          return this.name||"reTerminal Buttons";
       }
   });
 </script>
@@ -29,7 +29,7 @@
 
 <script type="text/javascript">
   RED.nodes.registerType('accelerometer',{
-      category: 'reterminal',
+      category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
           name: { value:"" }
@@ -37,9 +37,9 @@
       inputs:0,
       outputs:1,
       icon: "arrow-in.svg",
-      paletteLabel:"accel",
+      paletteLabel:"Accelerometer",
       label: function() {
-          return this.name||"reterminal accelerometer";
+          return this.name||"reTerminal Accelerometer";
       }
   });
 </script>
@@ -57,7 +57,7 @@
 
 <script type="text/javascript">
   RED.nodes.registerType('led_sta_green',{
-      category: 'reterminal',
+      category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
           name: { value:"" }
@@ -67,7 +67,7 @@
       icon: "light.svg",
       paletteLabel:"STA Green",
       label: function() {
-          return this.name||"reterminal LED STA Green";
+          return this.name||"reTerminal LED STA Green";
       }
   });
 </script>
@@ -85,7 +85,7 @@
 
 <script type="text/javascript">
   RED.nodes.registerType('led_sta_red',{
-      category: 'reterminal',
+      category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
           name: { value:"" }
@@ -95,7 +95,7 @@
       icon: "light.svg",
       paletteLabel:"STA Red",
       label: function() {
-          return this.name||"reterminal LED STA Red";
+          return this.name||"reTerminal LED STA Red";
       }
   });
 </script>
@@ -113,7 +113,7 @@
 
 <script type="text/javascript">
   RED.nodes.registerType('led_usr_green',{
-      category: 'reterminal',
+      category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
           name: { value:"" }
@@ -123,7 +123,7 @@
       icon: "light.svg",
       paletteLabel:"USR Green",
       label: function() {
-          return this.name||"reterminal LED USR Green";
+          return this.name||"reTerminal LED USR Green";
       }
   });
 </script>
@@ -137,4 +137,88 @@
 
 <script type="text/x-red" data-help-name="led_usr_green">
   <p>reTerminal LED node</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('buzzer',{
+      category: 'reTerminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:1,
+      outputs:0,
+      icon: "light.svg",
+      paletteLabel:"Buzzer",
+      label: function() {
+          return this.name||"reTerminal Buzzer";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="buzzer">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="buzzer">
+  <p>reTerminal Buzzer</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('light_sensor',{
+      category: 'reTerminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:0,
+      outputs:1,
+      icon: "arrow-in.svg",
+      paletteLabel:"Light Sensor",
+      label: function() {
+          return this.name||"reTerminal Light";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="light_sensor">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="light_sensor">
+  <p>reTerminal Light Sensor</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('touch_panel',{
+      category: 'reTerminal',
+      color: '#C7E9C0',
+      defaults: {
+          name: { value:"" }
+      },
+      inputs:0,
+      outputs:1,
+      icon: "arrow-in.svg",
+      paletteLabel:"Touch Panel",
+      label: function() {
+          return this.name||"reTerminal Touch";
+      }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="touch_panel">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="touch_panel">
+  <p>reTerminal Light Sensor</p>
 </script>

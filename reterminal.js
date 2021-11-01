@@ -1,25 +1,21 @@
 const InputEvent = require('npm-reterminal');
 const dev = require('npm-reterminal/lib/deviceid');
 const led = require('npm-reterminal/lib/led');
+const buzzer = require('npm-reterminal/lib/buzzer');
 var path = require('path');
 
 module.exports = function (RED) {
   function NodeRedReTerminalButtons(config) {
     RED.nodes.createNode(this, config);
     var node = this;
-    // console.log("NodeRedReTerminal");
 
     const spawn = require('child_process').spawn;
     const childprocess_buttons = spawn('node', [ path.join( __dirname , 'childprocess-buttons.js' )]);
     this.status({fill:"green",shape:"dot",text:"buttons listened"});
 
     childprocess_buttons.stdout.on('data', (data) => {
-      // console.log(`stdout: ${data}`);
-      // node.log(`stdout: ${data}`);
-      
       let str_data = String(data);
       const json_data = JSON.parse(str_data);
-      // console.log(json_data);
 
       msg = {};
       msg.payload = json_data;
@@ -41,24 +37,8 @@ module.exports = function (RED) {
     this.status({fill:"green",shape:"dot",text:"accelerometer listened"});
 
     childprocess_buttons.stdout.on('data', (data) => {
-      // console.log(`stdout: ${data}`);
-      // node.log(`stdout: ${data}`);
-      
       let str_data = String(data);
-
-      // console.log(str_data.length);
-      // console.log(str_data);
-
       const json_data = JSON.parse(str_data);
-      /*
-      try {
-        json_data = JSON.parse(str_data);
-      } catch (e){
-        console.log("error : " + e );
-        console.log(str_data);
-      }
-      */
-      // console.log(json_data);
 
       msg = {};
       msg.payload = json_data;
@@ -126,6 +106,73 @@ module.exports = function (RED) {
 
   }
   RED.nodes.registerType("led_usr_green", NodeRedReTerminalLEDUsrGreen, {
+    
+  });
+
+  function NodeRedReTerminalBuzzer(config) {
+    RED.nodes.createNode(this, config);
+    var node = this;
+
+    node.on('input', async function (msg) {
+      if( msg.payload == true ){
+        buzzer.buzzerOn();
+        this.status({fill:"green",shape:"dot",text:"Buzzer : on"});
+      } else if( msg.payload == false ){
+        buzzer.buzzerOff();
+        this.status({fill:"gray",shape:"dot",text:"Buzzer : off"});
+      }
+    });
+
+  }
+  RED.nodes.registerType("buzzer", NodeRedReTerminalBuzzer, {
+    
+  });
+
+  function NodeRedReTerminalLightSensor(config) {
+    RED.nodes.createNode(this, config);
+    var node = this;
+
+    const spawn = require('child_process').spawn;
+    const childprocess_buttons = spawn('node', [ path.join( __dirname , 'childprocess-light.js' )]);
+    this.status({fill:"green",shape:"dot",text:"light sensor listened"});
+
+    childprocess_buttons.stdout.on('data', (data) => {
+      let str_data = String(data);
+      const json_data = JSON.parse(str_data);
+
+      msg = {};
+      msg.payload = json_data;
+      
+      node.send(msg);
+      
+    });
+
+  }
+  RED.nodes.registerType("light_sensor", NodeRedReTerminalLightSensor, {
+    
+  });
+
+  function NodeRedReTerminalTouch(config) {
+    RED.nodes.createNode(this, config);
+    var node = this;
+
+    const spawn = require('child_process').spawn;
+    const childprocess_buttons = spawn('node', [ path.join( __dirname , 'childprocess-touch.js' )]);
+    this.status({fill:"green",shape:"dot",text:"touch panel listened"});
+
+    childprocess_buttons.stdout.on('data', (data) => {
+      let str_data = String(data);
+      const json_data = JSON.parse(str_data);
+
+      msg = {};
+      msg.payload = json_data;
+      
+      node.send(msg);
+      
+    });
+
+  }
+  RED.nodes.registerType("touch_panel", NodeRedReTerminalTouch, {
     
   });
 }
