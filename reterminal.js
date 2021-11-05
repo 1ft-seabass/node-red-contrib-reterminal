@@ -14,13 +14,24 @@ module.exports = function (RED) {
     this.status({fill:"green",shape:"dot",text:"buttons listened"});
 
     childprocess_buttons.stdout.on('data', (data) => {
-      let str_data = String(data);
-      const json_data = JSON.parse(str_data);
+      const str_data = String(data);
+      const line_str_index = str_data.indexOf("\n");  // Countermeasures about getting one over more lines.
+      const str_data_one_line = str_data.substr(0,line_str_index);
+      try {
+        const json_data = JSON.parse(str_data_one_line);
 
-      msg = {};
-      msg.payload = json_data;
+        msg = {};
+        msg.payload = json_data;
+        
+        node.send(msg);
+      } catch (e) {
+        // console.log("error");
+        console.log(e);
+
+        msg = {};
+        msg.payload = "error";
+      }
       
-      node.send(msg);
     });
 
   }

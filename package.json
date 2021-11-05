@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-reterminal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The node accessing for Seeed Studio reTerminal various data such as buttons, buzzer, LED, light, touch positions and accelerometer sensor.",
   "main": "index.js",
   "node-red": {
