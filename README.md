@@ -66,6 +66,8 @@ This library is easy to access reTerminal device Datas such as buttons, buzzer, 
 
 ## History
 
+- v0.1.1
+  - Countermeasures about getting one over more lines at Buttons node.
 - v0.1.0
   - Changed some node names bitly.
   - Light sensor supported.
