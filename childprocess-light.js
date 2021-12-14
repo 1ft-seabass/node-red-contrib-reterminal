@@ -1,6 +1,6 @@
 const light = require('npm-reterminal/lib/light');
 
-let loopInterval = 200;
+let loopInterval = 1000;
 let currentSendData = 0;
 
 setInterval(

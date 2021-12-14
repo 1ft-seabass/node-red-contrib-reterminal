@@ -10,7 +10,7 @@ let checkX = false;
 let checkY = false;
 let checkZ = false;
 let currentSendData = JSON.stringify({status:"waiting"});
-let loopInterval = 200;
+let loopInterval = 1000;
 
 accel.on('A1', function(buffer){
   // console.log('x-axis value=' + buffer);
