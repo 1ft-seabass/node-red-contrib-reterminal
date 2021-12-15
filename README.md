@@ -66,8 +66,12 @@ This library is easy to access reTerminal device Datas such as buttons, buzzer, 
 
 ## History
 
+- v0.1.3
+  - Accelerometer sensor node shifted from getting using exec spawn to getting inner function.
+  - Light sensor node shifted also the same approach.
+  - And added a  interval stop for them definitely when Node-RED closed.
 - v0.1.2
-  - Intervals getting data about accel and light sensor changed 200 ms to 1000ms temporarily.
+  - Intervals getting data about accelerometer and light sensor changed 200 ms to 1000ms temporarily.
   - I will change them so that you can freely choose the interval in the near future.
 - v0.1.1
   - Countermeasures about getting one over more lines at Buttons node.

@@ -2,9 +2,11 @@ const InputEvent = require('npm-reterminal');
 const dev = require('npm-reterminal/lib/deviceid');
 const led = require('npm-reterminal/lib/led');
 const buzzer = require('npm-reterminal/lib/buzzer');
-var path = require('path');
+const light = require('npm-reterminal/lib/light');
+const path = require('path');
 
 module.exports = function (RED) {
+
   function NodeRedReTerminalButtons(config) {
     RED.nodes.createNode(this, config);
     var node = this;
@@ -43,6 +45,7 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     var node = this;
 
+    /*
     const spawn = require('child_process').spawn;
     const childprocess_buttons = spawn('node', [ path.join( __dirname , 'childprocess-accel.js' )]);
     this.status({fill:"green",shape:"dot",text:"accelerometer listened"});
@@ -57,6 +60,70 @@ module.exports = function (RED) {
       node.send(msg);
       
     });
+    */
+
+    const accel = new InputEvent.Accel(dev.accelPath());
+
+    let xAxis = 0;
+    let yAxis = 0;
+    let zAxis = 0;
+    let checkX = false;
+    let checkY = false;
+    let checkZ = false;
+    let currentSendData = JSON.stringify({status:"waiting"});
+    let loopInterval = 1000;
+
+    accel.on('A1', function(buffer){
+      // console.log('x-axis value=' + buffer);
+      checkX = true;
+      xAxis = Number(buffer);
+    });
+
+    accel.on('A2', function(buffer){
+      // console.log('y-axis value=' + buffer);
+      checkY = true;
+      yAxis = Number(buffer);
+    });
+
+    accel.on('A3', function(buffer){
+      // console.log('z-axis value=' + buffer);
+      checkZ = true;
+      zAxis = Number(buffer);
+    });
+
+    const timerID = setInterval(
+      function () {
+        if( checkX  == true & checkY  == true & checkZ == true ){
+          const json_data = {
+            status:"ok",
+            axis:{
+              x:xAxis,
+              y:yAxis,
+              z:zAxis
+            }
+          }
+          currentSendData = JSON.stringify(json_data);
+          // console.log(currentSendData);
+          msg = {};
+          msg.payload = json_data;
+          node.send(msg);
+        } else {
+          const json_data = {
+            status:"waiting"
+          }
+          currentSendData = JSON.stringify(json_data);
+          // console.log(currentSendData);
+          msg = {};
+          msg.payload = json_data;
+          node.send(msg);
+        }
+      }, loopInterval
+    );
+
+    this.on('close', function() {
+      clearInterval(timerID);
+    });
+
 
   }
   RED.nodes.registerType("accelerometer", NodeRedReTerminalAccelerometer, {
@@ -143,6 +210,7 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     var node = this;
 
+    /*
     const spawn = require('child_process').spawn;
     const childprocess_buttons = spawn('node', [ path.join( __dirname , 'childprocess-light.js' )]);
     this.status({fill:"green",shape:"dot",text:"light sensor listened"});
@@ -156,6 +224,25 @@ module.exports = function (RED) {
       
       node.send(msg);
       
+    });
+    */
+
+    const loopInterval = 1000;
+    let timerID = setInterval(
+      function () {
+        const sensor_value = Number(light.lightSense())
+        const json_data = {
+          light:sensor_value
+        }
+        msg = {};
+        msg.payload = json_data;
+        node.send(msg);
+      }, loopInterval
+    );
+    
+    // この処理がないとタイマーが残る模様
+    this.on('close', function() {
+      clearInterval(timerID);
     });
 
   }
@@ -186,4 +273,5 @@ module.exports = function (RED) {
   RED.nodes.registerType("touch_panel", NodeRedReTerminalTouch, {
     
   });
+  
 }
