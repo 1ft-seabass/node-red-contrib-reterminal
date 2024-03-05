@@ -32,7 +32,8 @@
       category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
-          name: { value:"" }
+          name: { value:"" },
+          pollInterval: { value:1000,validate:RED.validators.number()}
       },
       inputs:0,
       outputs:1,
@@ -49,6 +50,10 @@
       <label for="node-input-name"><i class="icon-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
+  <div class="form-row">
+    <label for="node-input-pollInterval"><i class="fa fa-tag"></i> Poll Interval</label>
+     <input type="number" id="node-input-pollInterval">
+ </div>
 </script>
 
 <script type="text/x-red" data-help-name="accelerometer">
@@ -172,7 +177,8 @@
       category: 'reTerminal',
       color: '#C7E9C0',
       defaults: {
-          name: { value:"" }
+          name: { value:"" },
+          pollInterval: { value:1000,validate:RED.validators.number()}
       },
       inputs:0,
       outputs:1,
@@ -189,6 +195,10 @@
       <label for="node-input-name"><i class="icon-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
+  <div class="form-row">
+    <label for="node-input-pollInterval"><i class="fa fa-tag"></i> Poll Interval</label>
+     <input type="number" id="node-input-pollInterval">
+ </div>
 </script>
 
 <script type="text/x-red" data-help-name="light_sensor">
@@ -220,5 +230,5 @@
 </script>
 
 <script type="text/x-red" data-help-name="touch_panel">
-  <p>reTerminal Light Sensor</p>
+  <p>reTerminal Touch Panel</p>
 </script>
