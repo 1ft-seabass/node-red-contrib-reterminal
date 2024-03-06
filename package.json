@@ -11,7 +11,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1ft-seabass/node-red-contrib-reterminal.git"
+    "url": "git+https://github.com/martinroger/node-red-contrib-reterminal.git"
   },
   "keywords": [
     "reterminal",
