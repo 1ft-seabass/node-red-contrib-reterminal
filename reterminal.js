@@ -71,7 +71,7 @@ module.exports = function (RED) {
     let checkY = false;
     let checkZ = false;
     let currentSendData = JSON.stringify({status:"waiting"});
-    let loopInterval = 1000;
+    let loopInterval = config.pollInterval;
 
     accel.on('A1', function(buffer){
       // console.log('x-axis value=' + buffer);
@@ -227,7 +227,7 @@ module.exports = function (RED) {
     });
     */
 
-    const loopInterval = 1000;
+    const loopInterval = config.pollInterval;
     let timerID = setInterval(
       function () {
         const sensor_value = Number(light.lightSense())
